@@ -1,7 +1,8 @@
 import java.util.Objects;
 
-public class Professor {
+public abstract class Professor {
     private String nome;
+    private String sobrenome;
     private Integer tempoDeCasa;
     private Integer codigoDeProfessor;
 
@@ -26,31 +27,50 @@ public class Professor {
                 Objects.equals(tempoDeCasa, professor.tempoDeCasa) &&
                 Objects.equals(codigoDeProfessor, professor.codigoDeProfessor);
     }
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "nome='" + nome + '\'' +
+                ", tempoDeCasa=" + tempoDeCasa +
+                ", codigoDeProfessor=" + codigoDeProfessor +
+                '}';
+    }
 
-        //get and set
+    //get and set
 
-        public String getNome(){
-            return nome;
-        }
+    public String getNome(){
 
-        public void setNome (String nome){
-            this.nome = nome;
-        }
+        return nome;
+    }
 
-        public Integer getTempoDeCasa () {
-            return tempoDeCasa;
-        }
+    public void setNome (String nome){
 
-        public void setTempoDeCasa (Integer tempoDeCasa){
-            this.tempoDeCasa = tempoDeCasa;
-        }
+        this.nome = nome;
+    }
 
-        public Integer getCodigoDeProfessor () {
-            return codigoDeProfessor;
-        }
+    public String getSobrenome() {
+        return sobrenome;
+    }
 
-        public void setCodigoDeProfessor (Integer codigoDeProfessor){
-            this.codigoDeProfessor = codigoDeProfessor;
-        }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public Integer getTempoDeCasa () {
+        return tempoDeCasa;
+    }
+
+    public void setTempoDeCasa (Integer tempoDeCasa){
+        this.tempoDeCasa = tempoDeCasa;
+    }
+
+    public Integer getCodigoDeProfessor () {
+        return codigoDeProfessor;
+    }
+
+    public void setCodigoDeProfessor (Integer codigoDeProfessor){
+        this.codigoDeProfessor = codigoDeProfessor;
+    }
+
 
 }

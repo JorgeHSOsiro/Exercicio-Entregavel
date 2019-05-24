@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Curso {
     private String nome;
     private Integer codigoDeCurso;
-    private Professor professorTitular;
-    private Professor professorAdjunto;
+    private ProfessorTitular professorTitular;
+    private ProfessorAdjunto professorAdjunto;
     private Integer quantMaxAlunos;
-    private List<Aluno> alunosMatriculados;
+    private List<Aluno> alunosMatriculados = new ArrayList<>();
 
 
     public Curso(){
@@ -33,10 +34,12 @@ public class Curso {
     public boolean adicionarUmAluno(Aluno umAluno){
         if(alunosMatriculados.size() < quantMaxAlunos){
             alunosMatriculados.add(umAluno);
-            System.out.println("O aluno foi matriculado");
+            System.out.println("O aluno "+ umAluno.getNome()+ " " + umAluno.getSobrenome() +" foi aceito");
+            System.out.println("****************************");
             return true;
         }else{
-            System.out.println("Não há vagas disponíveis");
+            System.out.println("Desculpe não foi possivel adicionar o aluno");
+            System.out.println("****************************");
             return false;
         }
     }
@@ -45,7 +48,20 @@ public class Curso {
         alunosMatriculados.remove(umAluno);
     }
 
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "nome='" + nome + '\'' +
+                ", codigoDeCurso=" + codigoDeCurso +
+                ", professorTitular=" + professorTitular +
+                ", professorAdjunto=" + professorAdjunto +
+                ", quantMaxAlunos=" + quantMaxAlunos +
+                ", alunosMatriculados=" + alunosMatriculados +
+                '}';
+    }
+
     //get and set
+
     public String getNome() {
         return nome;
     }
@@ -54,15 +70,15 @@ public class Curso {
         this.nome = nome;
     }
 
-    public Integer getCodigoDoCurso() {
+    public Integer getCodigoDeCurso() {
         return codigoDeCurso;
     }
 
-    public void setCodigoDoCurso(Integer codigoDoCurso) {
-        this.codigoDeCurso = codigoDoCurso;
+    public void setCodigoDeCurso(Integer codigoDeCurso) {
+        this.codigoDeCurso = codigoDeCurso;
     }
 
-    public Professor getProfessorTitular() {
+    public ProfessorTitular getProfessorTitular() {
         return professorTitular;
     }
 
@@ -70,7 +86,7 @@ public class Curso {
         this.professorTitular = professorTitular;
     }
 
-    public Professor getProfessorAdjunto() {
+    public ProfessorAdjunto getProfessorAdjunto() {
         return professorAdjunto;
     }
 
